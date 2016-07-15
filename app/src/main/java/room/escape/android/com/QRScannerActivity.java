@@ -43,6 +43,14 @@ public class QRScannerActivity extends AppCompatActivity implements QRCodeReader
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_CANCELED, resultIntent);
+        finish();
+    }
+
+    @Override
     public void cameraNotFound() {
 //        Intent resultIntent = new Intent();
 //        resultIntent.putExtra(QR_READER_RESULT, "");

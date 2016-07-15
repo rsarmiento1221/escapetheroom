@@ -15,25 +15,231 @@
         android:layout_height="wrap_content"
         android:text="Scan To start the Quest"
         android:id="@+id/buttonMainQuest"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textViewMainQuest"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_above="@+id/buttonMainQuest"
         android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/buttonMainQuest" />
+        android:layout_alignParentStart="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/container"
+            android:layout_weight=".8">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/imageviewMain"
+                android:src="@drawable/clip_source"
+                />
+
+            <!--<LinearLayout android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:padding="16dp">-->
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/thumb_button_1"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="75dp"-->
+                    <!--android:layout_marginRight="1dp"-->
+                    <!--android:src="@mipmap/diorama_lapu_lapu"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--/>-->
+
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash; This initially-hidden ImageView will hold the expanded/zoomed version of-->
+                 <!--the images above. Without transformations applied, it takes up the entire-->
+                 <!--screen. To achieve the "zoom" animation, this view's bounds are animated-->
+                 <!--from the bounds of the thumbnail button above, to its final laid-out-->
+                 <!--bounds.-->
+                 <!--&ndash;&gt;-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/expanded_image"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:visibility="invisible"-->
+                <!--/>-->
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearHideImage"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:weightSum="3"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/imageHide1"
+                    android:padding="1dp"
+                    android:layout_weight="1"
+                    android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide2"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide3"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:weightSum="3"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide4"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide5"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide6"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:weightSum="3"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide7"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide8"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageHide9"
+                        android:padding="1dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/question_mark"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight=".2"
+           android:orientation="horizontal"
+
+           >
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:layout_above="@+id/buttonMainQuest"
+              android:layout_toLeftOf="@+id/buttonHint"
+              android:layout_toStartOf="@+id/buttonHint">
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="New Text"
+                  android:id="@+id/textViewMainQuest"
+                  android:gravity="center"
+                  android:textSize="18sp"
+                  android:textColor="@android:color/black"
+                  android:textStyle="bold"
+                 />
+              <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="New Text"
+                  android:id="@+id/textViewSubQuest"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@android:color/black"
+
+                  />
+          </LinearLayout>
+
+           <Button
+               style="?android:attr/buttonStyleSmall"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Hint"
+               android:id="@+id/buttonHint"
+               android:layout_centerVertical="true"
+               android:layout_alignParentRight="true"
+               android:layout_alignParentEnd="true" />
+
+       </RelativeLayout>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

@@ -19,7 +19,10 @@ import room.escape.android.com.Utility.EscapeTheRoomUtilities;
 
 public class BlackSmithActivity extends AppCompatActivity implements View.OnClickListener, EscapeTheRoomUtilities{
     private ListView listViewRequirements;
+
     private TextView textViewBlackSmith;
+    private TextView textViewSubBlackSmith;
+
     private BlackSmithRequirementAdapter blackSmithRequirementAdapter;
 
     private Button buttonScanQR;
@@ -36,7 +39,10 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_black_smith);
 
         listViewRequirements = (ListView) findViewById(R.id.listViewRequirements);
+
         textViewBlackSmith  = (TextView) findViewById(R.id.textViewBlackSmith);
+        textViewSubBlackSmith = (TextView) findViewById(R.id.textViewSubBlackSmith);
+
         buttonScanQR = (Button) findViewById(R.id.buttonScanQR);
 
         blackSmithRequirementAdapter = new BlackSmithRequirementAdapter(this, R.layout.list_blacksmith_requirement, blackSmithRequirementsArrayList);
@@ -48,6 +54,9 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initiateValues(){
+        textViewBlackSmith.setText("BlackSmith Requirements");
+        textViewSubBlackSmith.setText("Hi, in order to help Lapu-Lapu, I need the following requirements");
+
         BlackSmithRequirements bs1 = new BlackSmithRequirements();
         bs1.setName("Iron");
         bs1.setDataName(BLACKSMITH_INGREDIENTS_1);
@@ -92,7 +101,7 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
 
             if (isFinishCollectingIngredients()){
                 QR_OPERATION = SUB_QUEST_REQUEST_1;
-                textViewBlackSmith.setText("Return To BlackSmith");
+                textViewSubBlackSmith.setText("You Gathered all the missing requirements. Time to go back to finish the quest");
             }
 
         }

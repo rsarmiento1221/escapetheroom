@@ -8,6 +8,7 @@ public interface EscapeTheRoomUtilities {
     public static String QR_READER_RESULT = "qr_reader_result";
 
     public static int MAIN_QUEST_REQUEST_1 = 1;
+    public static int MAIN_ANIM_QUEST_REQUEST_1 = 501;
 
     public static int SUB_QUEST_REQUEST_1 = 1001;
 
