@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class EpilogueActivity extends Activity {
 
     private Handler handler = new Handler();
 
     private ImageView imageViewScene;
+
+    private TextView textViewFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,7 @@ public class EpilogueActivity extends Activity {
 
         imageViewScene = (ImageView) findViewById(R.id.imageViewScene);
 
+        textViewFinished = (TextView) findViewById(R.id.textViewFinished);
         initializeValue();
 
     }
@@ -54,6 +59,7 @@ public class EpilogueActivity extends Activity {
             @Override
             public void run() {
                 imageViewScene.setImageResource(R.mipmap.image4);
+                textViewFinished.setVisibility(View.VISIBLE);
                 AlphaAnimation animation1 = new AlphaAnimation(0.2f, 1.0f);
                 animation1.setDuration(800);
                 imageViewScene.setAlpha(1f);

@@ -10,7 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageViewScene"
-        android:scaleType="fitXY"
-        android:src="@mipmap/image1"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/image4"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QUEST FINISHED"
+        android:id="@+id/textViewFinished"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageViewScene"
+        android:layout_alignStart="@+id/imageViewScene" />
 </RelativeLayout>
