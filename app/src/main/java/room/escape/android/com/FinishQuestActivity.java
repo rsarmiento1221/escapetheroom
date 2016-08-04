@@ -34,8 +34,9 @@ public class FinishQuestActivity extends AppCompatActivity implements View.OnCli
             String result = data.getStringExtra(QR_READER_RESULT);
 
             if (MAIN_QUEST_RESULT_1.toString().equalsIgnoreCase(result)){
-                textViewFinishQuestDesc.setText("CONGRATULATIONS YOU FINISH THE QUEST!!!!!!!");
-
+                Intent i = new Intent(this, EpilogueActivity.class);
+                startActivity(i);
+                finish();
             }
             else{
                 showAlert("Invalid QR");

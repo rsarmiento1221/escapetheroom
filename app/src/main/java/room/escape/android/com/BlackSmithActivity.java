@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +23,9 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
 
     private TextView textViewBlackSmith;
     private TextView textViewSubBlackSmith;
+
+    private ImageView imageViewBag;
+    private ImageView imageViewMainImage;
 
     private BlackSmithRequirementAdapter blackSmithRequirementAdapter;
 
@@ -42,6 +46,9 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
 
         textViewBlackSmith  = (TextView) findViewById(R.id.textViewBlackSmith);
         textViewSubBlackSmith = (TextView) findViewById(R.id.textViewSubBlackSmith);
+
+        imageViewBag = (ImageView) findViewById(R.id.imageViewBag);
+        imageViewMainImage = (ImageView) findViewById(R.id.imageViewMainImage);
 
         buttonScanQR = (Button) findViewById(R.id.buttonScanQR);
 
@@ -100,8 +107,13 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
             }
 
             if (isFinishCollectingIngredients()){
+                listViewRequirements.setVisibility(View.GONE);
+                imageViewBag.setVisibility(View.VISIBLE);
+                imageViewMainImage.setImageResource(R.mipmap.blacksmith);
+
                 QR_OPERATION = SUB_QUEST_REQUEST_1;
-                textViewSubBlackSmith.setText("You Gathered all the missing requirements. Time to go back to finish the quest");
+                buttonScanQR.setText("Return To BlackSmith");
+                textViewSubBlackSmith.setText("You Gathered all the missing requirements. Time to go back to create the swords");
             }
 
         }
@@ -110,13 +122,24 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
             String result = data.getStringExtra(QR_READER_RESULT);
 
             if (SUB_QUEST_RESULT_BLACKSMITH.toString().equalsIgnoreCase(result)){
-                Intent i = new Intent(this, FinishQuestActivity.class);
-                startActivity(i);
-                finish();
+//                Intent i = new Intent(this, FinishQuestActivity.class);
+//                startActivity(i);
+//                finish();
+                QR_OPERATION = BLACKSMITH_QUEST_ANIMATION_REQUEST;
+                Intent i = new Intent(this, ForgingActivity.class);
+                startActivityForResult(i, QR_OPERATION);
             }
             else{
                 showAlert("Invalid QR");
             }
+        }
+
+        else if (requestCode == BLACKSMITH_QUEST_ANIMATION_REQUEST && resultCode == Activity.RESULT_OK){
+
+                Intent i = new Intent(this, FinishQuestActivity.class);
+                startActivity(i);
+                finish();
+
         }
 
         else {

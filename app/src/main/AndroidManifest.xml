@@ -16,9 +16,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".QRScannerActivity" />
-        <activity android:name=".BlackSmithActivity" />
+        <activity android:name=".BlackSmithActivity">
+        </activity>
         <activity android:name=".FinishQuestActivity" />
-        <activity android:name=".LapuLapuActivity"></activity>
+        <activity android:name=".LapuLapuActivity" />
+        <activity
+            android:name=".ForgingActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"></activity>
+        <activity android:name=".EpilogueActivity"  android:theme="@android:style/Theme.NoTitleBar"></activity>
     </application>
 
 </manifest>

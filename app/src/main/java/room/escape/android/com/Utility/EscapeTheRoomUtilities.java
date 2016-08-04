@@ -13,6 +13,7 @@ public interface EscapeTheRoomUtilities {
     public static int SUB_QUEST_REQUEST_1 = 1001;
 
     public static int BLACKSMITH_QUEST_REQUEST = 5000;
+    public static int BLACKSMITH_QUEST_ANIMATION_REQUEST = 5500;
 
     public static String MAIN_QUEST_RESULT_1 = "MainQuest";
 

@@ -1,11 +1,14 @@
 package room.escape.android.com.Adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ public class BlackSmithRequirementAdapter extends ArrayAdapter<BlackSmithRequire
             holder = new ViewHolder();
             holder.textViewName = (TextView) v.findViewById(R.id.textViewName);
             holder.textViewValue = (TextView) v.findViewById(R.id.textViewValue);
+            holder.imageViewIcon = (ImageView) v.findViewById(R.id.imageViewIcon);
             v.setTag(holder);
         }
         else {
@@ -44,13 +48,14 @@ public class BlackSmithRequirementAdapter extends ArrayAdapter<BlackSmithRequire
         BlackSmithRequirements blackSmithRequirements = objects.get(position);
 
         if (blackSmithRequirements != null) {
+            holder.imageViewIcon.setImageResource(getResIDByName(blackSmithRequirements.getName().replace(" ", "").toLowerCase()));
             holder.textViewName.setText(blackSmithRequirements.getName());
             if (blackSmithRequirements.getValue() == false){
-                holder.textViewValue.setText("NOT SCANNED YET");
+                holder.textViewValue.setText("Missing Requirement");
                 holder.textViewValue.setTextColor(Color.RED);
             }
             else{
-                holder.textViewValue.setText("FOUND ALREADY");
+                holder.textViewValue.setText("Gathered");
                 holder.textViewValue.setTextColor(Color.GREEN);
             }
         }
@@ -59,7 +64,15 @@ public class BlackSmithRequirementAdapter extends ArrayAdapter<BlackSmithRequire
 
     }
 
+    private int getResIDByName(String value){
+        Resources resources = getContext().getResources();
+        final int resourceId = resources.getIdentifier(value, "mipmap",
+                getContext().getPackageName());
+        return resourceId;
+    }
+
     static class ViewHolder {
+        ImageView imageViewIcon;
         TextView textViewName;
         TextView textViewValue;
     }
