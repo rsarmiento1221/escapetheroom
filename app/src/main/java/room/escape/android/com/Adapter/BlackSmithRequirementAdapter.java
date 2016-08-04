@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.ArrayList;
 
@@ -20,6 +24,7 @@ import room.escape.android.com.R;
  * Created by Janwel Ocampo on 7/5/2016.
  */
 public class BlackSmithRequirementAdapter extends ArrayAdapter<BlackSmithRequirements> {
+
 
     private ArrayList<BlackSmithRequirements> objects;
 
@@ -63,6 +68,7 @@ public class BlackSmithRequirementAdapter extends ArrayAdapter<BlackSmithRequire
         return v;
 
     }
+
 
     private int getResIDByName(String value){
         Resources resources = getContext().getResources();

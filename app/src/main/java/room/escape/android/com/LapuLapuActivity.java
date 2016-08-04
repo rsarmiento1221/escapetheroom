@@ -45,6 +45,8 @@ public class LapuLapuActivity extends AppCompatActivity {
         );
     }
 
+
+
     private void setMessage(final String message, int delay){
         handler.postDelayed(new Runnable() {
             @Override

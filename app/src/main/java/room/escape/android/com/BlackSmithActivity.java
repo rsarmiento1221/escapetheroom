@@ -3,6 +3,7 @@ package room.escape.android.com;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.ArrayList;
 
@@ -36,6 +40,8 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
     private int QR_OPERATION = BLACKSMITH_QUEST_REQUEST;
 
     private boolean isFindScanned = false;
+
+    private Handler handler = new Handler();
     //private boolean isFinishCollectingIngredients = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +89,12 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
 
         blackSmithRequirementAdapter.notifyDataSetChanged();
 
+        YoYo.with(Techniques.FadeIn)
+                .duration(800)
+                .playOn(imageViewMainImage);
+
+        handler.postDelayed(runnableAnimateMainImage, 1500);
+
     }
 
     @Override
@@ -110,6 +122,15 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
                 listViewRequirements.setVisibility(View.GONE);
                 imageViewBag.setVisibility(View.VISIBLE);
                 imageViewMainImage.setImageResource(R.mipmap.blacksmith);
+
+                handler.removeCallbacksAndMessages(null);
+
+                YoYo.with(Techniques.Swing)
+                        .duration(700)
+                        .playOn(imageViewBag);
+
+                handler.postDelayed(runnableAnimateBag, 1200);
+
 
                 QR_OPERATION = SUB_QUEST_REQUEST_1;
                 buttonScanQR.setText("Return To BlackSmith");
@@ -147,6 +168,31 @@ public class BlackSmithActivity extends AppCompatActivity implements View.OnClic
 
         }
     }
+
+    private Runnable runnableAnimateBag = new Runnable() {
+        @Override
+        public void run() {
+            YoYo.with(Techniques.Swing)
+                    .duration(700)
+                    .playOn(imageViewBag);
+
+            handler.postDelayed(this, 1200);
+        }
+    };
+
+
+    private Runnable runnableAnimateMainImage = new Runnable() {
+        @Override
+        public void run() {
+            YoYo.with(Techniques.FadeIn)
+                    .duration(800)
+                    .playOn(imageViewMainImage);
+
+
+            handler.postDelayed(this, 2000);
+        }
+    };
+
 
     @Override
     public void onClick(View v) {

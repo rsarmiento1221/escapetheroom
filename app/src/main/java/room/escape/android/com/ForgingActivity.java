@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.builder.AnimateGifMode;
 
@@ -43,10 +45,13 @@ public class ForgingActivity extends Activity {
             @Override
             public void run() {
                 imageViewAnimateForging.setImageResource(R.mipmap.sword);
-                AlphaAnimation animation1 = new AlphaAnimation(0.2f, 1.0f);
-                animation1.setDuration(800);
-                imageViewAnimateForging.setAlpha(1f);
-                imageViewAnimateForging.startAnimation(animation1);
+                YoYo.with(Techniques.ZoomIn)
+                        .duration(700)
+                        .playOn(imageViewAnimateForging);
+//                AlphaAnimation animation1 = new AlphaAnimation(0.2f, 1.0f);
+//                animation1.setDuration(800);
+//                imageViewAnimateForging.setAlpha(1f);
+//                imageViewAnimateForging.startAnimation(animation1);
             }
         }, 2000);
 
